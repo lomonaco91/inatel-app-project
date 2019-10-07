@@ -1,14 +1,73 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Meus posts
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <!-- Segment pages -->
+  <ion-segment [(ngModel)]="page" color="primary" (ionChange)="segmentChanged($event.value)">
+    <ion-segment-button value="home">
+      Home
+    </ion-segment-button>
+    <ion-segment-button value="favoritos">
+      Favoritos
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- General div to control segment -->
+  <div [ngSwitch]="page">
+
+    <!-- ALL POSTS -->
+    <div *ngSwitchCase="'home'">
+      <!-- Card with all posts -->
+      <ion-card>
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-10>
+                <p>Título</p>
+              </ion-col>
+              <ion-col col-2>
+                <ion-icon class="emptyHeart" name="heart-outline" *ngIf="dislikePost"></ion-icon>
+                <ion-icon class="fullHeart" name="heart" *ngIf="likePost"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+        <ion-card-content>
+          POSTS
+        </ion-card-content>
+      </ion-card>
+      <!-- Card with all posts -->
+    </div>
+
+    <!-- FAVORITES -->
+    <div *ngSwitchCase="'favoritos'">
+      <!-- Card with all favorite -->
+      <ion-card>
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-10>
+                <p>Título</p>
+              </ion-col>
+              <ion-col col-2>
+                <ion-icon class="emptyHeart" name="heart-outline" *ngIf="dislikePost"></ion-icon>
+                <ion-icon class="fullHeart" name="heart" *ngIf="likePost"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+        <ion-card-content>
+          FAVORITES
+        </ion-card-content>
+      </ion-card>
+      <!-- Card with all favorite -->
+    </div>
+  </div>
+
 </ion-content>

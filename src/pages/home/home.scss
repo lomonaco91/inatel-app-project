@@ -1,3 +1,11 @@
 page-home {
 
+    // Card properties
+    ion-card{
+        background-color: #fff0f7 !important;
+        border-radius: 5px !important;
+    }
+    ion-card ion-card-header{
+        padding: 6px !important;
+    }
 }
