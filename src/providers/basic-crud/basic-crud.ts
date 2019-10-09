@@ -30,7 +30,7 @@ export class BasicCrudProvider {
   public updateFavorite(idPost, isFav) {
     return this.dbProvider.getDB()
       .then((db: SQLiteObject) => {
-        let sql = 'UPDATE favoritos SET fav = ? WHERE idPost = ?';
+        let sql = 'UPDATE favoritos SET favorites = ? WHERE idPost = ?';
         let data = [isFav, idPost];
         return db.executeSql(sql, data).then(() => {
           console.log("Success!");

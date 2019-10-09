@@ -68,7 +68,11 @@
         <ion-card-content>
           <p class="body">{{ p.conteudo }}</p>
         </ion-card-content>
+        <ion-card-content>
+          <p class="detail" (click)="showDetail(p)">SHOW DETAILS</p>
+        </ion-card-content>
       </ion-card>
+
       <!-- Card with all favorite -->
     </div>
   </div>

@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { BasicCrudProvider } from '../../providers/basic-crud/basic-crud';
+import { DescriptionCommentsPage } from '../description-comments/description-comments';
+import { p } from '@angular/core/src/render3';
 
 @Component({
   selector: 'page-home',
@@ -31,6 +33,7 @@ export class HomePage {
     this.listPost = [];
     this.listComment = [];
     this.listTotalComment = [];
+    this.listFavorites = [];
     this.page = "home";
   }
 
@@ -64,6 +67,7 @@ export class HomePage {
 
   segmentChanged(segment) {
     console.log("What page am i ?", segment);
+    this.listFavorites = [];
     if (segment === "favoritos") {
       this.dao.getAllFavoritePost().then(res => {
         console.log("Result GET", res);
@@ -81,7 +85,6 @@ export class HomePage {
     let postId = cardPost.id;
     let title = cardPost.title;
     let body = cardPost.body;
-
 
     // Check if is INSERT or UPDATE
     if (!cardPost.favorite) {
@@ -102,5 +105,16 @@ export class HomePage {
     }
   }
 
+  /**
+   * Show post detail
+   */
+  showDetail(post) {
+    console.log("Show post detail");
+    let objPost = {
+      comments: this.listComment,
+      idPost: post.idPost
+    }
+    this.navCtrl.push(DescriptionCommentsPage, { posts: objPost });
+  }
 
 }

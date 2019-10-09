@@ -1,3 +1,26 @@
 page-description-comments {
 
+    //******* --Logo-- *******>
+    .logo{
+        height: 35px;
+        width: 35px;
+        float: right;
+        margin-right: 10px;
+    }
+    .logo img{
+        height: 30px;
+        width: 30px;
+        border-radius: 30px !important
+    }
+    //******* --Logo-- *******>
+
+    // General title
+    ion-title{
+        margin-top: 5px !important;
+       
+    }
+    div.toolbar-title.toolbar-title-md{
+        color: #0061B0 !important;
+    }
+
 }
