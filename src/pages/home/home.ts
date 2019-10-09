@@ -17,6 +17,7 @@ export class HomePage {
   // List of posts/comments
   listPost: any = [];
   listComment: any = [];
+  listTotalComment: any = [];
 
   // Segment variables
   page: string = "";
@@ -24,6 +25,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, private http: HttpClient) {
     this.listPost = [];
     this.listComment = [];
+    this.listTotalComment = [];
     this.page = "home";
   }
 
@@ -51,10 +53,16 @@ export class HomePage {
         reject();
       })
     });
+
+
   }
 
   segmentChanged(segment) {
     console.log("What page am i ?", segment);
+  }
+
+  favoriteCard() {
+    console.log("Favorite this post and save it in database")
   }
 
 

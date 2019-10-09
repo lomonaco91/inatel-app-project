@@ -1,7 +1,10 @@
 <ion-header>
   <ion-navbar>
+    <div class="logo">
+      <img src="assets/imgs/iccLogo.jpg" />
+    </div>
     <ion-title>
-      Meus posts
+      ICC-Post
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -24,14 +27,14 @@
     <!-- ALL POSTS -->
     <div *ngSwitchCase="'home'">
       <!-- Card with all posts -->
-      <ion-card>
+      <ion-card *ngFor="let p of listPost">
         <ion-card-header>
           <ion-grid>
             <ion-row>
               <ion-col col-10>
-                <p>Título</p>
+                <p class="title">{{ p.title }}</p>
               </ion-col>
-              <ion-col col-2>
+              <ion-col col-2 (click)="favoriteCard()">
                 <ion-icon class="emptyHeart" name="heart-outline" *ngIf="dislikePost"></ion-icon>
                 <ion-icon class="fullHeart" name="heart" *ngIf="likePost"></ion-icon>
               </ion-col>
@@ -39,7 +42,7 @@
           </ion-grid>
         </ion-card-header>
         <ion-card-content>
-          POSTS
+          <p class="body">{{ p.body }}</p>
         </ion-card-content>
       </ion-card>
       <!-- Card with all posts -->

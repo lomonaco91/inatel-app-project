@@ -7,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DescriptionCommentsPage } from '../pages/description-comments/description-comments';
+import { SQLite } from '@ionic-native/sqlite';
+import { DatabaseProvider } from '../providers/database/database';
+import { BasicCrudProvider } from '../providers/basic-crud/basic-crud';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { DescriptionCommentsPage } from '../pages/description-comments/descripti
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    SQLite,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    DatabaseProvider,
+    BasicCrudProvider
   ]
 })
 export class AppModule { }

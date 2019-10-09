@@ -1,11 +1,56 @@
 page-home {
 
+    //******* --Logo-- *******>
+    .logo{
+        height: 35px;
+        width: 35px;
+        float: right;
+        margin-right: 10px;
+    }
+    .logo img{
+        height: 30px;
+        width: 30px;
+        border-radius: 30px !important
+    }
+    //******* --Logo-- *******>
+
+    // General title
+    ion-title{
+        margin-top: 5px !important;
+       
+    }
+    div.toolbar-title.toolbar-title-md{
+        color: #0061B0 !important;
+    }
+
     // Card properties
     ion-card{
-        background-color: #fff0f7 !important;
+        background-color: #0061B0 !important;
         border-radius: 5px !important;
     }
     ion-card ion-card-header{
         padding: 6px !important;
     }
+
+    // Title and body propertie
+    p.title{
+        font-weight: bold !important;
+        color: #ffff7f !important;
+    }
+    p.body{
+        text-align: justify !important;
+        color: #fff !important;
+    }
+
+    // Heart icon propertie
+    ion-grid ion-row ion-col ion-icon.emptyHeart{
+        color: red !important;
+        font-size: 2em !important;
+    }
+
+    // Comment Total Icon
+    ion-card ion-card-content ion-icon.commentsTotal{
+        font-size: 2em !important;
+    }
+
 }
