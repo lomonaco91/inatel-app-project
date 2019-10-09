@@ -35,6 +35,7 @@ import { BasicCrudProvider } from '../providers/basic-crud/basic-crud';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DatabaseProvider,
     BasicCrudProvider
+
   ]
 })
 export class AppModule { }

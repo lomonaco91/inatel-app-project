@@ -34,9 +34,10 @@
               <ion-col col-10>
                 <p class="title">{{ p.title }}</p>
               </ion-col>
-              <ion-col col-2 (click)="favoriteCard()">
-                <ion-icon class="emptyHeart" name="heart-outline" *ngIf="dislikePost"></ion-icon>
-                <ion-icon class="fullHeart" name="heart" *ngIf="likePost"></ion-icon>
+              <ion-col col-2 text-center (click)="favoriteCard(p)">
+                <ion-icon class="emptyHeart" name="heart-outline" *ngIf="!p.favorite">
+                </ion-icon>
+                <ion-icon class="fullHeart" name="heart" *ngIf="p.favorite"></ion-icon>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -51,22 +52,21 @@
     <!-- FAVORITES -->
     <div *ngSwitchCase="'favoritos'">
       <!-- Card with all favorite -->
-      <ion-card>
+      <ion-card *ngFor="let p of listFavorites">
         <ion-card-header>
           <ion-grid>
             <ion-row>
               <ion-col col-10>
-                <p>Título</p>
+                <p class="title">{{ p.titulo }}</p>
               </ion-col>
-              <ion-col col-2>
-                <ion-icon class="emptyHeart" name="heart-outline" *ngIf="dislikePost"></ion-icon>
-                <ion-icon class="fullHeart" name="heart" *ngIf="likePost"></ion-icon>
+              <ion-col col-2 text-center>
+                <ion-icon class="fullHeart" name="heart"></ion-icon>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-card-header>
         <ion-card-content>
-          FAVORITES
+          <p class="body">{{ p.conteudo }}</p>
         </ion-card-content>
       </ion-card>
       <!-- Card with all favorite -->

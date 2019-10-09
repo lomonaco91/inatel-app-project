@@ -10,11 +10,11 @@ export class BasicCrudProvider {
   /**
    * This function insert a favorite post on DB
    */
-  public insertFavorite(idPost, titulo, conteudo, isFav) {
+  public insertFavorite(idPost, titulo, conteudo, favorite) {
     return this.dbProvider.getDB()
       .then((db: SQLiteObject) => {
-        let sql = 'INSERT INTO favoritos (idPost, titulo, conteudo, isFav) VALUES (?, ?, ?, ?)';
-        let data = [idPost, titulo, conteudo, isFav];
+        let sql = 'INSERT INTO favoritos (idPost, titulo, conteudo, favorites) VALUES (?, ?, ?, ?)';
+        let data = [idPost, titulo, conteudo, favorite];
         return db.executeSql(sql, data).then(() => {
           console.log("Success!");
         }, err => {
@@ -30,7 +30,7 @@ export class BasicCrudProvider {
   public updateFavorite(idPost, isFav) {
     return this.dbProvider.getDB()
       .then((db: SQLiteObject) => {
-        let sql = 'UPDATE favoritos SET isFav = ? WHERE idPost = ?';
+        let sql = 'UPDATE favoritos SET fav = ? WHERE idPost = ?';
         let data = [isFav, idPost];
         return db.executeSql(sql, data).then(() => {
           console.log("Success!");
@@ -47,7 +47,7 @@ export class BasicCrudProvider {
   public getAllFavoritePost() {
     let isFavorite: number = 1
     return this.dbProvider.getDB().then((db: SQLiteObject) => {
-      let sql = 'SELECT * FROM favoritos WHERE isFav = ?';
+      let sql = 'SELECT * FROM favoritos WHERE favorites = ?';
       let data = [isFavorite];
       return db.executeSql(sql, data).then((data: any) => {
         if (data.rows.length > 0) {

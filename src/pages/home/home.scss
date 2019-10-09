@@ -36,6 +36,7 @@ page-home {
     p.title{
         font-weight: bold !important;
         color: #ffff7f !important;
+        white-space: normal !important;
     }
     p.body{
         text-align: justify !important;
@@ -44,6 +45,11 @@ page-home {
 
     // Heart icon propertie
     ion-grid ion-row ion-col ion-icon.emptyHeart{
+        color: red !important;
+        font-size: 2em !important;
+    }
+    // Heart icon propertie
+    ion-grid ion-row ion-col ion-icon.fullHeart{
         color: red !important;
         font-size: 2em !important;
     }

@@ -33,9 +33,9 @@ export class DatabaseProvider {
    */
   private createTables(db: SQLiteObject) {
     db.sqlBatch([
-      ['CREATE TABLE IF NOT EXISTS `favoritos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idPost` INTEGER NOT NULL, `titulo` varchar(255) NOT NULL, `conteudo` varchar(255) NOT NULL, `isFav` INTEGER)']
+      ['CREATE TABLE IF NOT EXISTS favoritos (favorites INTEGER NOT NULL, id INTEGER PRIMARY KEY NOT NULL, idPost INTEGER NOT NULL, titulo varchar(255) NOT NULL, conteudo varchar(255) NOT NULL)']
     ])
-      .then(() => console.log("Tables created"))
+      .then(tb => console.log("Tables created"))
       .catch(err => console.error("Tables not created", err));
   }
 
