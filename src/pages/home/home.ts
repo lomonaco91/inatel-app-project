@@ -109,10 +109,10 @@ export class HomePage {
    * Show post detail
    */
   showDetail(post) {
-    console.log("Show post detail");
     let objPost = {
       comments: this.listComment,
-      idPost: post.idPost
+      idPost: post.idPost,
+      name: post.titulo
     }
     this.navCtrl.push(DescriptionCommentsPage, { posts: objPost });
   }

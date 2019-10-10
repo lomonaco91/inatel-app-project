@@ -12,6 +12,8 @@ export class DescriptionCommentsPage {
 
   listComments: any = [];
   idPost: number;
+  listCM: any = [];
+  titlePost: string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -19,6 +21,9 @@ export class DescriptionCommentsPage {
     this.listComments = [];
     this.listComments = this.navParams.get('posts').comments;
     this.idPost = this.navParams.get('posts').idPost;
+    this.titlePost = this.navParams.get('posts').name;
+
+    console.log("NNNNNNNN -->", this.titlePost)
 
   }
 
@@ -42,6 +47,7 @@ export class DescriptionCommentsPage {
         console.log("NOME: ", c.name);
         console.log("EMAIL: ", c.email);
         console.log("CONT.", c.body);
+        this.listCM.push(c);
       }
     });
   }

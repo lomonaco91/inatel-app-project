@@ -11,7 +11,15 @@
 
 <ion-content padding>
 
-  <p>Title</p>
-  <p>Comments</p>
+  <p class="title">Title</p>
+  <span>{{ titlePost }}</span>
+  <p class="comm">Comments</p>
+
+  <ion-list *ngFor="let dt of listCM">
+    <ion-item>
+      <p>Name: {{ dt.name }}</p>
+      <p>E-mail: {{ dt.email }}</p>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
