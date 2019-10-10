@@ -1,2 +1,10 @@
 # inatel-app-project
-INATEL App - It is an application for evaluation.
+
+Technologies:
+
+-Framework: Ionic 3
+-Server communication: HttpClient-Ionic
+-Software architecture: Model View View-Model
+-DataBase: SQLite based
+-SDK Android API: 29
+
